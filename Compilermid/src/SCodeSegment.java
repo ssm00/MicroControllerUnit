@@ -20,7 +20,7 @@ public class SCodeSegment implements INode {
 		String operator = tokens[0];
 		while (operator.compareTo(".end") != 0) {
 			if ((operator.startsWith("//")) || (operator.length() == 0)) {
-
+				continue;
 			} else if (operator.contains(":")) {
 				//symboltable
 				SSymbolEntity entity = new SSymbolEntity();
@@ -36,9 +36,6 @@ public class SCodeSegment implements INode {
 					case 2:
 						statement = new SStatement(tokens[0], tokens[1]);
 						break;
-					case 3:
-						statement = new SStatement(tokens[0], tokens[1], tokens[2]);
-						break;
 					default:
 						break;
 				}
@@ -52,10 +49,10 @@ public class SCodeSegment implements INode {
 	}
 
 	/**
-	 * 기계어 번역을 위한 2단계 파싱
+	 * 16진수 기계어 번역을 위한 2단계 파싱
 	 * 주소값, 레지스터값, Label을 16진수로 변경
-	 * @주소 -> symbolTable의 주소로 2자리 16진수로 변경
-	 * 누산기는 ac1 -> 0xFE ac2 -> 0xFF로 정의.
+	 * 주소 -> symbolTable의 주소로 2자리 16진수로 변경
+	 * 레지스터들은 0xFF부터 하나씩 작은 숫자로정의.
 	 * Label의 경우 line number로 변경
 	 */
 	public void secondPhaseParse() {
@@ -64,36 +61,39 @@ public class SCodeSegment implements INode {
 			String operatorCode = getOperatorCode(operator);
 			statement.setOperator(operatorCode);
 
-			for (int i = 1; i <= statement.getOperandCount(); i++) {
-				String operand = statement.getOperand(i);
+			//operand가 있는 경우
+			if (statement.getOperandCount() == 1) {
+				String operand = statement.getOperand();
 				//주소
-				if (operand.startsWith("@")) {
-					SSymbolEntity symbol = this.symbolTable.get(operand.substring(1));
-					statement.setToHexString(i,  String.format("%02X", symbol.getValue()));
+				if (operand.equals("loada") || operand.equals("stoa")|| operand.equals("adda")|| operand.equals("suba")|| operand.equals("print")) {
+					SSymbolEntity symbol = this.symbolTable.get(operand);
+					statement.setToHexString(String.format("%02X", symbol.getValue()));
 				}
 				//라벨
 				else if (symbolTable.labelCheck(operand)) {
 					SSymbolEntity symbol = this.symbolTable.get(operand);
-					statement.setToHexString(i,  String.format("%02X", symbol.getValue()));
+					statement.setToHexString(String.format("%02X", symbol.getValue()));
 				}
-				//누산기
-				else if (operand.equals("ac1")) {
-					statement.setToHexString(i, "FE");
-				} else if (operand.equals("ac2")) {
-					statement.setToHexString(i, "FF");
+				//레지스터들 16진수로 설정
+				else if (operand.equals("ds")) {
+					statement.setToHexString("FB");
+				} else if (operand.equals("hs")) {
+					statement.setToHexString("FC");
+				} else if (operand.equals("ss")) {
+					statement.setToHexString("FD");
+				} else if (operand.equals("hp")) {
+					statement.setToHexString("FE");
+				} else if (operand.equals("sp")) {
+					statement.setToHexString("FF");
 				}
-				//그외 숫자는 16진수형태로
+				//그외 상수들 16진수형태로 변경
 				else{
-					statement.setToHexString(i, String.format("%02X", Integer.parseInt(operand)));
+					statement.setToHexString(String.format("%02X", Integer.parseInt(operand)));
 				}
 			}
-			//빈경우 00으로 채우기
-			if (statement.getOperandCount() == 0) {
-				statement.setToHexString(1, "00");
-				statement.setToHexString(2, "00");
-			}
-			if (statement.getOperandCount() == 1) {
-				statement.setToHexString(2, "00");
+			//operand가 없는 경우 00으로 채우기 (00으로 채워놔야 int로 맞게 변환가능)
+			else if (statement.getOperandCount() == 0) {
+				statement.setToHexString("00");
 			}
 		}
 	}
@@ -103,28 +103,42 @@ public class SCodeSegment implements INode {
 	 */
 	private String getOperatorCode(String operatorString) {
 		switch (operatorString) {
-			case "move":
-				return "0x01";
-			case "add":
-				return "0x02";
-			case "sub":
-				return "0x03";
-			case "mul":
-				return "0x04";
-			case "div":
-				return "0x05";
-			case "jump":
-				return "0x06";
-			case "gtj":
-				return "0x07";
-			case "gtjn":
-				return "0x08";
-			case "lda":
-				return "0x09";
-			case "sto":
-				return "0x0A";
 			case "halt":
+				return "0x01";
+			case "loada":
+				return "0x02";
+			case "loadc":
+				return "0x03";
+			case "loadr":
+				return "0x04";
+			case "stoa":
+				return "0x05";
+			case "set":
+				return "0x06";
+			case "adda":
+				return "0x07";
+			case "addc":
+				return "0x08";
+			case "addr":
+				return "0x09";
+			case "suba":
+				return "0x0A";
+			case "jump":
 				return "0x0B";
+			case "jumpra":
+				return "0x0C";
+			case "gtj":
+				return "0x0D";
+			case "input":
+				return "0x0E";
+			case "print":
+				return "0x0F";
+			case "pushh":
+				return "0x10";
+			case "pushs":
+				return "0x11";
+			case "pop":
+				return "0x12";
 			default:
 				throw new IllegalArgumentException("Invalid operator");
 		}

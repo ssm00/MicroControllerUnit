@@ -5,13 +5,12 @@ import java.util.Scanner;
 public class SMain {
 	private SLex lex;
 	private SParser parser;
-	
 	public SMain() {
 		
 	}
 	public void initialize() {
 		lex = new SLex();
-		lex.initialize("source/exe1");
+		lex.initialize("source/assembly");
 		parser = new SParser();
 	}
 	public void finalize() {

@@ -8,7 +8,7 @@ public class Loader {
 	public enum ESymbolType{
 		eVariable,
 		eLabel,
-		eRegister
+		eRegister,
 	}
 	class SymbolEntity{
 		public ESymbolType eSymbolType;

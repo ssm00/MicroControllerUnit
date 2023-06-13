@@ -1,0 +1,87 @@
+        .header
+        count 0
+        sum 4
+        average 8
+        i 12
+        student 16
+
+        .code
+        input
+        set ds
+        stoa count
+        loada i
+        stoa 0
+start:
+        loada i
+        suba count
+        gtj end
+        loada i
+        addc 1
+        stoa i
+        set hs
+        loadr hp
+        stoa student
+        loadc 60
+        stoa hp
+        pushh 4
+        loadc 70
+        stoa hp
+        pushh 4
+        set ss
+        loadr sp
+        stoa sp
+        pushs 4
+        stoa sp
+        pushs 4
+        stoa sp
+        pushs 4
+        loadc 31
+        stoa sp
+        jump sum
+        set ss
+        loada 4
+        set ds
+        stoa count
+        pop
+        print sum
+        set ss
+        loadr sp
+        stoa sp
+        pushs 4
+        stoa sp
+        pushs 4
+        stoa sp
+        pushs 4
+        loadc 48
+        stoa sp
+        jump avg
+        set ss
+        loada 4
+        set ds
+        stoa average
+        pop
+        print average
+        jump start
+end:
+        halt
+sum:
+        set hs
+        adda 0
+        adda 4
+        set ss
+        stoa 8
+        loada 8
+        stoa 4
+        loada 12
+        jumpra
+avg:
+        set hs
+        adda 0
+        adda 4
+        set ss
+        stoa 8
+        loada 8
+        stoa 4
+        loada 12
+        jumpra
+        .end

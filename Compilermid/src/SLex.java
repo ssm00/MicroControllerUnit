@@ -27,6 +27,9 @@ public class SLex {
 	public String[] getTokens() {
 		if(scanner.hasNext()) {
 			String line = scanner.nextLine();
+			while (line.isEmpty()) {
+				line = scanner.nextLine();
+			}
 			String [] tokens = line.strip().split("[ \t]+");
 			return tokens;
 		}
