@@ -2,24 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bd296e52-6c2c-4e64-9cc3-e819ff36af39" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/code/exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/KeyBoard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Compilermid/executable/exe1" beforeDir="false" afterPath="$PROJECT_DIR$/../Compilermid/executable/exe1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Compilermid/first/exe1" beforeDir="false" afterPath="$PROJECT_DIR$/../Compilermid/first/exe1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Compilermid/source/assembly" beforeDir="false" afterPath="$PROJECT_DIR$/../Compilermid/source/assembly" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Compilermid/source/exe1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Compilermid/source/exe2" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../Compilermid/source/sourceCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Compilermid/source/sourceCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Compilermid/src/SCodeSegment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Compilermid/src/SCodeSegment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Compilermid/src/SHeader.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Compilermid/src/SHeader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Compilermid/src/SProgram.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Compilermid/src/SProgram.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Compilermid/src/SSymbolTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Compilermid/src/SSymbolTable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/exe1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/exe2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Cpu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cpu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Loader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Loader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,14 +30,14 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/java/school3-1/systemProgramming/MCUmid"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/java/school3-1/systemProgramming/MCUmid&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -66,6 +50,7 @@
       <workItem from="1686504177169" duration="27000" />
       <workItem from="1686560613959" duration="631000" />
       <workItem from="1686580157595" duration="31432000" />
+      <workItem from="1686716984230" duration="2003000" />
     </task>
     <servers />
   </component>
@@ -82,5 +67,16 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Cpu.java</url>
+          <line>154</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
