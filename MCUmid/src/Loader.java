@@ -22,15 +22,17 @@ public class Loader {
 
 	HashMap<String, SymbolEntity> symbolTable;
 	Memory memory;
-	public Loader(Memory memory) {
+	Cpu cpu;
+	public Loader(Memory memory, Cpu cpu) {
 		symbolTable = new HashMap<String, SymbolEntity>();
 		this.memory = memory;
+		this.cpu = cpu;
 	}
 
 	public void load() {
 		Scanner scanner = null;
 		try {
-			scanner = new Scanner(new File("code/exe1"));
+			scanner = new Scanner(new File("code/exe"));
 		} catch (FileNotFoundException e) {
 			throw new RuntimeException(e);
 		}
@@ -41,14 +43,23 @@ public class Loader {
 
 	private void parseHeader(Scanner scanner) {
 		String [] tokens = getTokens(scanner);
+		cpu.cs.setValue(0);
 		if (tokens[0].equals("$Header")) {
 			tokens = getTokens(scanner);
 			while (!tokens[0].equals("$Code")) {
-				int memoryAddress = Integer.parseInt(tokens[1]);
-				memory.getMemory().set(100 + memoryAddress, 0);
+				if (tokens[0].equals("CS")) {
+					int segmentSize = Integer.parseInt(tokens[1]) + 1;
+					cpu.ds.setValue(segmentSize);
+				} else if(tokens[0].equals("DS")) {
+					int segmentSize = Integer.parseInt(tokens[1])*4;
+					cpu.ss.setValue(cpu.ds.getValue()+segmentSize);
+				}
 				tokens = getTokens(scanner);
 			}
 		}
+		//cpu.ds.setValue(100);
+		//cpu.ss.setValue(200);
+		cpu.hs.setValue(cpu.ss.getValue()+256);
 	}
 
 	private void parseCode(Scanner scanner) {
