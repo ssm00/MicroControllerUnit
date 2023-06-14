@@ -139,6 +139,8 @@ public class SCodeSegment implements INode {
 				return "0x11";
 			case "pop":
 				return "0x12";
+			case "div":
+				return "0x13";
 			default:
 				throw new IllegalArgumentException("Invalid operator");
 		}
@@ -153,6 +155,13 @@ public class SCodeSegment implements INode {
 		for (SStatement statement : this.statements) {
 			result += statement.toString() + "\n";
 		}
+		return result;
+	}
+
+	public String getCs() {
+		String result = "CS ";
+		int size = this.statements.size();
+		result += size;
 		return result;
 	}
 }

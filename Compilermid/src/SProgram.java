@@ -29,7 +29,8 @@ public class SProgram implements INode{
 	public String toString() {
 		String result = "";
 		result += "$Header"+"\n";
-		result += this.header.toString();
+		result += this.codeSegment.getCs()+"\n";
+		result += this.header.getDs()+"\n";
 		result += "$Code"+"\n";
 		result += this.codeSegment.toString();
 		return result;

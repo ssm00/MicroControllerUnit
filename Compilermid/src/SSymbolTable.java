@@ -28,4 +28,5 @@ public class SSymbolTable extends Vector<SSymbolEntity>{
         }
         return false;
     }
+
 }

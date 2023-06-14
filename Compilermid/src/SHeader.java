@@ -20,10 +20,10 @@ public class SHeader implements INode{
 		return token;
 	}
 
-	@Override
-	public String toString() {
-		String result = "";
-		result += this.declarations.toString();
+	public String getDs() {
+		String result = "DS ";
+		int ds = this.declarations.size();
+		result += ds;
 		return result;
 	}
 

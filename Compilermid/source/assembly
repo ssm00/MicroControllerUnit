@@ -9,8 +9,8 @@
         input
         set ds
         stoa count
-        loada i
-        stoa 0
+        loadc 0
+        stoa i
 start:
         loada i
         suba count
@@ -18,9 +18,11 @@ start:
         loada i
         addc 1
         stoa i
-        set hs
+        set ds
         loadr hp
+        addr hs
         stoa student
+        set hs
         loadc 60
         stoa hp
         pushh 4
@@ -35,13 +37,13 @@ start:
         pushs 4
         stoa sp
         pushs 4
-        loadc 31
+        loadc 33
         stoa sp
-        jump sum
+        jump fsum
         set ss
         loada 4
         set ds
-        stoa count
+        stoa sum
         pop
         print sum
         set ss
@@ -52,9 +54,9 @@ start:
         pushs 4
         stoa sp
         pushs 4
-        loadc 48
+        loadc 50
         stoa sp
-        jump avg
+        jump favg
         set ss
         loada 4
         set ds
@@ -64,9 +66,9 @@ start:
         jump start
 end:
         halt
-sum:
+fsum:
         set hs
-        adda 0
+        loada 0
         adda 4
         set ss
         stoa 8
@@ -74,10 +76,11 @@ sum:
         stoa 4
         loada 12
         jumpra
-avg:
+favg:
         set hs
-        adda 0
+        loada 0
         adda 4
+        div 2
         set ss
         stoa 8
         loada 8

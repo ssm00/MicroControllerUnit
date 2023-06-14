@@ -1,6 +1,8 @@
 public class systemProgramming {
     public static void main(String[] args) {
         int count = scanner.nextInt();
+        int sum;
+        int average;
         for (int i=0; i< count; i++) {
             Student student = new Student();
             sum = student.sum();

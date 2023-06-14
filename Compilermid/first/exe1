@@ -1,24 +1,23 @@
 $Header
-count 0
-sum 4
-average 8
-i 12
-student 16
+CS 77
+DS 5
 $Code
 input
 setds
 stoacount
-loadai
-stoa0
+loadc0
+stoai
 loadai
 subacount
 gtjend
 loadai
 addc1
 stoai
-seths
+setds
 loadrhp
+addrhs
 stoastudent
+seths
 loadc60
 stoahp
 pushh4
@@ -33,13 +32,13 @@ stoasp
 pushs4
 stoasp
 pushs4
-loadc31
+loadc33
 stoasp
-jumpsum
+jumpfsum
 setss
 loada4
 setds
-stoacount
+stoasum
 pop
 printsum
 setss
@@ -50,9 +49,9 @@ stoasp
 pushs4
 stoasp
 pushs4
-loadc48
+loadc50
 stoasp
-jumpavg
+jumpfavg
 setss
 loada4
 setds
@@ -62,7 +61,7 @@ printaverage
 jumpstart
 halt
 seths
-adda0
+loada0
 adda4
 setss
 stoa8
@@ -71,8 +70,9 @@ stoa4
 loada12
 jumpra
 seths
-adda0
+loada0
 adda4
+div2
 setss
 stoa8
 loada8
