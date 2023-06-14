@@ -6,9 +6,9 @@ public class systemProgramming {
         for (int i=0; i< count; i++) {
             Student student = new Student();
             sum = student.sum();
-            System.out.println("sum: "+sum);
+            System.out.println(sum);
             average = student.average();
-            System.out.println("average: "+average);
+            System.out.println(average);
         }
     }
 }
@@ -16,11 +16,6 @@ public class systemProgramming {
 class Student{
     private int kor = 60;
     private int eng = 70;
-
-    public Student(int kor, int eng) {
-        this.kor = kor;
-        this.eng = eng;
-    }
 
     public int sum() {
         int sum = this.kor+this.eng;
