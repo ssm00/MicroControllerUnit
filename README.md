@@ -1,6 +1,6 @@
 # MicroControllerUnit
 
-![image](https://github.com/ssm00/MicroControllerUnit/assets/97657265/3d21d069-c0a8-4054-ac6a-3c2709ba42a9)
+<img width="318" alt="instruction set" src="https://github.com/ssm00/MicroControllerUnit/assets/97657265/ed24d6d3-7d09-4c4e-9169-c3fa0b9173f2">
 
 
 ----------------------sourceCode----------------------------------
